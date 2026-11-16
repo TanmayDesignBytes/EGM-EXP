@@ -1,0 +1,21 @@
+# Claim-to-evidence map
+
+This index ties public-facing claims to the project artifact or execution record that supports them. A missing artifact is identified explicitly rather than inferred.
+
+| Claim | Evidence source | Evidence type and limit |
+|---|---|---|
+| EGM workflow/roles and official Codex CLI instructions | [EGM upstream README](https://github.com/google/elephant-goldfish-model), [Codex integration guide](https://github.com/google/elephant-goldfish-model/blob/main/docs/codex.md); also installed plugin docs consulted during this pass | Upstream documentation. The repository does not preserve the exact historical install command or CLI/plugin version used in the experiment. |
+| Experiment requirements and initial review summary | [`concepts_brief.md`](concepts_brief.md) | Original EGM artifact. It summarizes six review themes but not individual reviewer returns or severity. |
+| Approved architecture, task rules, storage, tests, and file plan | [`design_draft.md`](design_draft.md) | Original EGM design artifact. Approval checkpoints are recorded in the project conversation, not as a signed file. |
+| Stage 5 initial high-level challenges | [`zoom_out_report.md`](reviews/zoom_out_report.md) | Original stage report, with two Major findings and its recorded rationale. |
+| Stage 6 comprehension findings | [`comprehension_report.md`](reviews/comprehension_report.md) | Original stage report, with two Nits. |
+| Stage 7 design/structure/style review | [`critic_report.md`](reviews/critic_report.md) | Original stage report. Includes a disputed Major, optional security note, and style suggestions. |
+| Stage 8 re-review | [`intermediate_zoom_out_report.md`](reviews/intermediate_zoom_out_report.md) | Original stage report, including repeated revision-tracking challenge and clarity Nits. |
+| Stage 9 implementation readiness | [`implementation_readiness_report.md`](reviews/implementation_readiness_report.md) | Original report. Includes Major M1 and Nits; also records the optional Stage 8 prompt-order limitation. |
+| All five-stage pre-resolution status | [`consolidated_review_report.md`](reviews/consolidated_review_report.md) | Historical snapshot written before resolution; it correctly describes findings as outstanding at that time. |
+| Final approved finding dispositions | [`goldfish_review_report.md`](reviews/goldfish_review_report.md) | Later resolution report; records four approved fixes and retained revision tracking. |
+| Actual task rules and storage implementation | [`src/domain/tasks.ts`](../../src/domain/tasks.ts), [`src/persistence/taskStorage.ts`](../../src/persistence/taskStorage.ts), [`src/persistence/crossTab.ts`](../../src/persistence/crossTab.ts), [`src/app/appReducer.ts`](../../src/app/appReducer.ts), [`src/App.tsx`](../../src/App.tsx), [`src/components/TaskManagerView.tsx`](../../src/components/TaskManagerView.tsx) | Source code. It establishes implementation behavior, not successful browser execution. |
+| Automated cases and expected outcomes | [`src/domain/tasks.test.ts`](../../src/domain/tasks.test.ts), [`src/app/appReducer.test.ts`](../../src/app/appReducer.test.ts), [`src/persistence/taskStorage.test.ts`](../../src/persistence/taskStorage.test.ts), [`src/persistence/crossTab.test.ts`](../../src/persistence/crossTab.test.ts) | Test source. The actual latest command result is summarized below. |
+| Latest test/build/audit results | Execution during documentation preparation on 2026-11-16: `npm test`, `npm run build`, `npm audit` | Terminal results were observed in this session; no standalone raw command log was saved. Tests: 4 files/19 tests passed; build succeeded; audit reported zero vulnerabilities. |
+| Browser smoke interaction | Evidence-preparation pass on 2026-11-16: Vite at `http://127.0.0.1:5175/`; isolated headless Chrome submitted `Design UI` and dependent `Build UI` through the app form | Rendered state and [`04-task-manager.png`](../evidence/screenshots/04-task-manager.png) show the derived Blocked label and named prerequisite. This does not establish the rest of the manual checklist. |
+| Screenshot capture status | [`docs/evidence/README.md`](../evidence/README.md) | Four browser-scoped screenshots are saved and linked. Terminal images 05 and 06 are blocked; no full-desktop capture was used. |
